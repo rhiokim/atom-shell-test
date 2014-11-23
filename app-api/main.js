@@ -31,8 +31,32 @@ app.on('quit', function() {
 	console.log('quit');
 });
 
-app.addRecentDocument('file://' + __dirname + '/index.html');
+app.addRecentDocument('/Users/kimyangwon/Develop/Ninja/atom-app-builder/README.md');
 
 console.log('app.getDataPath(): '+ app.getDataPath());
 console.log('app.getVersion(): '+ app.getVersion());
 console.log('app.getName(): '+ app.getName());
+
+var dockMenu = Menu.buildFromTemplate([
+  { label: 'New Window', click: function() { console.log('New Window'); } },
+  { label: 'New Window with Settings', submenu: [
+    { label: 'Basic' },
+    { label: 'Pro'},
+  ]},
+  { label: 'New Command...'},
+]);
+
+// console.log(dockMenu);
+
+// app.dock.setMenu(dockMenu);
+
+app.setUserTasks([
+  {
+    program: process.execPath,
+    arguments: '--new-window',
+    iconPath: process.execPath,
+    iconIndex: 0,
+    title: 'New Window',
+    description: 'Create a new winodw'
+  }
+]);
