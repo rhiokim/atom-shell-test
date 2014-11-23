@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title></title>
+		<script>
+			var remote = require('remote');
+			var app = remote.require('app');
+
+			window.setTimeout(function() {
+				app.dock.bounce('critical');
+			}, 2500);
+			window.setTimeout(function() {
+				app.dock.bounce('informational');
+			}, 5000);
+			window.setTimeout(function() {
+				app.dock.setBadge('99');
+			}, 7500);
+			window.setTimeout(function() {
+				app.dock.hide();
+			}, 9000);
+			window.setTimeout(function() {
+				app.dock.show();
+			}, 10500);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
